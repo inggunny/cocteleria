@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=UnifrakturMaguntia&display=swap');
+
+/* La carta tiene su propio tema; la gestión conserva su interfaz habitual. */
+.public-menu {
+  --parchment: #ede1c9;
+  --gold: #c1a06b;
+  --soft-gold: #8e7958;
+  --wine: #671f35;
+  color-scheme: dark;
+  background:
+    radial-gradient(ellipse at 50% 0%, #56172b55, transparent 58%),
+    repeating-linear-gradient(45deg, #ffffff02 0 1px, transparent 1px 7px),
+    #0d0b0f;
+  color: var(--parchment);
+  min-height: 100svh;
+  border-top: 3px solid var(--wine);
+}
+.public-menu header {
+  border-color: #c1a06b33;
+  color: #b9a88e;
+}
+.public-menu .menu-logo {
+  font: 400 43px 'UnifrakturMaguntia', Georgia, serif;
+  letter-spacing: 0;
+  color: var(--parchment);
+}
+.public-menu .menu-logo span { color: var(--gold); }
+.public-menu .menu-intro {
+  position: relative;
+  max-width: none;
+  text-align: center;
+  padding: 58px 0 54px;
+}
+.public-menu .menu-intro::before {
+  content: '☾';
+  display: block;
+  font: 48px Georgia, serif;
+  color: var(--gold);
+  margin-bottom: 22px;
+  text-shadow: 0 0 35px #c1a06b35;
+}
+.public-menu .menu-intro .eyebrow {
+  color: var(--gold);
+  letter-spacing: 3px;
+  font-size: 10px;
+}
+.public-menu .menu-intro h1 {
+  font: 500 clamp(42px, 6.2vw, 78px)/1.04 'Cormorant Garamond', 'Palatino Linotype', Georgia, serif;
+  letter-spacing: -1.3px;
+  color: var(--parchment);
+  margin: 24px 0;
+  text-wrap: balance;
+}
+.public-menu .menu-intro p:not(.eyebrow) {
+  color: #b7a9ae;
+  max-width: 440px;
+  margin: 22px auto;
+  font-size: 14px;
+  line-height: 1.8;
+}
+.public-menu .menu-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  border: 0;
+  border-radius: 0;
+  color: #d5b983;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1.7px;
+  padding: 10px 0;
+}
+.public-menu .menu-tag::before,
+.public-menu .menu-tag::after {
+  content: '';
+  width: 34px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--soft-gold));
+}
+.public-menu .menu-tag::after { transform: rotate(180deg); }
+.public-menu .menu-grid { gap: 26px; padding-bottom: 64px; }
+.public-menu .menu-card {
+  background: linear-gradient(145deg, #25151e, #151116 65%);
+  border: 1px solid #c1a06b55;
+  border-radius: 60px 60px 3px 3px;
+  padding: 38px 32px 30px;
+  box-shadow: inset 0 0 0 5px #110d12, inset 0 0 0 6px #c1a06b18, 0 12px 28px #0003;
+  transition: border-color .2s ease, background-color .2s ease;
+  text-align: center;
+  min-width: 0;
+}
+.public-menu .menu-card::after {
+  content: '✦';
+  color: var(--soft-gold);
+  position: absolute;
+  left: 50%;
+  top: -10px;
+  transform: translateX(-50%);
+  background: #160f15;
+  padding: 0 12px;
+  font-size: 17px;
+}
+.public-menu .menu-card:hover { border-color: #c1a06baa; }
+.public-menu .menu-number {
+  color: #c5a77c;
+  font: 500 13px 'Cormorant Garamond', Georgia, serif;
+  letter-spacing: 3px;
+  margin-bottom: 16px;
+}
+.public-menu .menu-card h2 {
+  color: var(--parchment);
+  font: 600 clamp(29px, 3vw, 37px)/1.15 'Cormorant Garamond', Georgia, serif;
+  overflow-wrap: anywhere;
+}
+.public-menu .menu-card p {
+  color: #c0afb5;
+  font-size: 14px;
+  line-height: 1.8;
+  margin: 18px 0;
+}
+.public-menu .menu-price {
+  border-top: 1px solid #c1a06b29;
+  margin-top: auto;
+  padding-top: 22px;
+  gap: 12px;
+  flex-wrap: wrap;
+  text-align: left;
+}
+.public-menu .menu-price strong {
+  color: #dfc28d;
+  font: 600 29px 'Cormorant Garamond', Georgia, serif;
+}
+.public-menu .menu-price span {
+  color: #b7a3ad;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.public-menu .menu-empty {
+  border: 1px solid #c1a06b44;
+  border-radius: 48px 48px 2px 2px;
+  background: linear-gradient(180deg, #2b152055, #151116);
+  padding: 42px 24px;
+  text-align: center;
+}
+.public-menu .menu-empty h2 {
+  color: var(--parchment);
+  font: 500 32px 'Cormorant Garamond', Georgia, serif;
+}
+.public-menu .menu-empty p { color: #c0afb5; }
+.public-menu footer {
+  border-color: #c1a06b33;
+  color: var(--gold);
+}
+.public-menu footer span:first-child { color: var(--gold); }
+.public-menu footer span:last-child { color: #b7a3ad; line-height: 1.7; }
+.public-menu a:focus-visible { outline: 2px solid var(--gold); }
+@media (max-width: 720px) {
+  .public-menu { padding-left: 22px; padding-right: 22px; }
+  .public-menu header { height: 78px; gap: 16px; }
+  .public-menu header > span { max-width: 150px; text-align: right; line-height: 1.8; }
+  .public-menu .menu-intro { padding: 40px 0 36px; }
+  .public-menu .menu-intro h1 { letter-spacing: -.8px; }
+  .public-menu .menu-intro .eyebrow { letter-spacing: 2px; }
+  .public-menu .menu-tag { font-size: 9px; gap: 10px; letter-spacing: 1px; }
+  .public-menu .menu-tag::before, .public-menu .menu-tag::after { width: 22px; }
+  .public-menu .menu-card { padding: 34px 26px 26px; }
+  .public-menu .menu-grid { gap: 28px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .public-menu .menu-card { transition: none; }
+}

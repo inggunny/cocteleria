@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block title %}Carta de cócteles · Barra{% endblock %}
+{% block extra_styles %}<link rel="stylesheet" href="{{ url_for('static', filename='menu.css') }}">{% endblock %}
+{% block content %}
+<main class="public-menu"><header><a class="menu-logo" href="/carta">barra<span>·</span></a><span>CÓCTELES · BUENOS MOMENTOS</span></header><section class="menu-intro"><p class="eyebrow">PREPARADOS EN EL MOMENTO</p><h1>Una buena noche<br>empieza en la barra.</h1><p>Nuestra carta de cócteles, según lo que tenemos hoy para vos.</p><span class="menu-tag">Disponibles para preparar</span></section><section class="menu-grid" aria-label="Cócteles disponibles">{% for c in cocktails %}<article class="menu-card"><span class="menu-number">{{ '%02d'|format(loop.index) }}</span><h2>{{ c.name }}</h2>{% if c.description %}<p>{{ c.description }}</p>{% endif %}<div class="menu-price"><strong>$ {{ '{:,.2f}'.format(c.price) }}</strong><span>por cóctel</span></div></article>{% else %}<div class="menu-empty"><h2>Estamos preparando la barra.</h2><p>Por ahora no hay cócteles disponibles en la carta. Consultanos por otras opciones.</p></div>{% endfor %}</section><footer><span>Hechos para disfrutar.</span><span>Disponibilidad sujeta a cambios · Consultá por alérgenos en la barra.</span></footer></main>
+<script>setTimeout(() => window.location.reload(), 60000);</script>
+{% endblock %}

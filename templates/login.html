@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block content %}
+<main class="login"><div class="brand">b<span>·</span></div><p class="eyebrow">TU BARRA, EN ORDEN</p><h1>Todo bajo control.</h1><p class="muted">Ingresá para gestionar el inventario de tu bar.</p>
+{% for category, message in get_flashed_messages(with_categories=true) %}<div class="notice {{ category }}" role="alert">{{ message }}</div>{% endfor %}
+<form method="post"><input type="hidden" name="csrf" value="{{ session.csrf }}"><label>Clave de acceso<input type="password" name="password" required autocomplete="current-password" autofocus></label><button class="primary">Ingresar a la barra →</button></form>
+</main>
+{% endblock %}

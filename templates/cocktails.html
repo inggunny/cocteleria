@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<main class="recipe-workspace">
+<header><a href="/">← Inventario</a><a href="/carta" target="_blank" rel="noopener">Ver carta pública ↗</a></header>
+<section class="heading"><div><p class="eyebrow">DE TU BARRA A LA MESA</p><h1>Cócteles y recetas</h1><p class="muted">Definí qué ofrecés. Las existencias determinan qué aparece en la carta.</p></div><a class="primary" href="/cocktails/new">＋ Nuevo cóctel</a></section>
+{% for category, message in get_flashed_messages(with_categories=true) %}<div class="notice {{ category }}" role="status">{{ message }}</div>{% endfor %}
+<div class="notice success">Tu carta sin clave está en <a href="/carta"><b>/carta ↗</b></a>. Solo muestra cócteles publicados con stock suficiente para una porción.</div>
+<section class="recipe-grid">{% for c in cocktails %}<article class="panel recipe-card"><div class="recipe-top"><h2>{{ c.name }}</h2><span class="status {{ 'ok' if c.published and c.available else 'low' }}">{{ 'Oculto' if not c.published else ('En carta' if c.available else 'Sin disponibilidad') }}</span></div><p class="muted">{{ c.description }}</p><strong>$ {{ '{:,.2f}'.format(c.price) }}</strong><h3>Ingredientes por porción</h3><ul class="ingredient-list">{% for i in c.ingredients %}<li><span>{{ i.product.name }}{% if i.product.brand %} · {{ i.product.brand }}{% endif %}</span><span>{{ i.quantity|float }} {{ i.product.unit }}{% if not i.product.active or i.product.stock < i.quantity %} <b class="negative"> · Falta stock{{ ' (archivado)' if not i.product.active else '' }}</b>{% endif %}</span></li>{% endfor %}</ul><a class="secondary" href="/cocktails/{{ c.id }}/edit">Editar receta</a></article>{% else %}<article class="panel empty"><h2>Armá tu primer cóctel</h2><p class="muted">Elegí sus ingredientes del inventario, las cantidades por porción y su precio.</p><a class="primary" href="/cocktails/new">Crear cóctel</a></article>{% endfor %}</section>
+</main>
+{% endblock %}
